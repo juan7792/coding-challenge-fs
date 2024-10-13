@@ -1,4 +1,5 @@
 <div class="container mx-auto p-6 max-w-3xl bg-gray-100 text-gray-800">
+    <!-- Title and aggregated value -->
     <header class="mb-8">
       <h1 class="text-4xl font-bold text-center text-gray-900 mb-4">Star Wars People</h1>
       <p class="text-center text-lg text-gray-700">
@@ -6,6 +7,7 @@
       </p>
     </header>
   
+    <!-- Filter box -->
     <div class="mb-6">
       <div class="relative">
         <input 
@@ -21,6 +23,7 @@
       </div>
     </div>
   
+    <!-- Person's data -->
     <ul class="space-y-4">
       <li *ngFor="let person of displayedPeople" class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300 border border-gray-200">
         <h3 class="text-xl font-semibold text-gray-900 mb-2">{{ person.name }}</h3>
@@ -38,6 +41,7 @@
       </li>
     </ul>
 
+    <!-- Loading block when data is being retrieved -->
     <div *ngIf="isLoading" class="text-center text-gray-700 mt-8">
         <svg class="animate-spin h-8 w-8 mx-auto text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -46,6 +50,7 @@
         <p class="mt-2 font-medium">Loading...</p>
     </div>
   
+    <!-- No result block when search hit no results -->
     <div *ngIf="!isLoading && allPeople.length > 0 && displayedPeople.length === 0" class="text-center text-gray-600 mt-8 p-4 bg-gray-200 rounded-lg border border-gray-300">
       <p class="text-lg font-medium">No results found</p>
       <p class="text-sm mt-2">Try adjusting your search criteria</p>

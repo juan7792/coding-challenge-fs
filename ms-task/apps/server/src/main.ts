@@ -12,6 +12,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const globalPrefix = 'server';
   app.setGlobalPrefix(globalPrefix);
+  // Allow calls from frontend
   app.enableCors({
     origin: 'http://localhost:4200',
     methods: ['GET']
